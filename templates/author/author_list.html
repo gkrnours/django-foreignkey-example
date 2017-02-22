@@ -1,0 +1,11 @@
+{% extends "author/base.html" %}
+
+{% block main %}
+	<ul class=list-group>{% for author in author_list %}
+		<li class=list-group-item>
+			{{author.name}} &ndash;
+			<a href={% url 'author:books' author.pk %}>books</a>
+	{% empty %}
+		<li class=list-group-item>No author
+	{% endfor %}</ul>
+{% endblock %}

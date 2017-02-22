@@ -1,0 +1,18 @@
+{% extends "author/base.html" %}
+
+{% block main %}
+	<p><a class="btn btn-primary"
+		href="{% url 'author:book_create' author.pk %}">Add a book to {{ author }}</a>
+	</p>
+	<ul class=list-group>{% for book in book_list %}
+		<li class=list-group-item>
+			{{ book.title }} &ndash; {{ book.author }}
+			<a href="{% url 'author:book_delete' book.pk %}"
+				class="label label-danger pull-right">Delete</a>
+			<a href="{% url 'author:book_update' book.pk %}"
+				class="label label-default m-x pull-right">Edit</a>
+				
+	{% empty %}
+		<li class=list-group-item>No books
+	{% endfor %}</ul>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "author/base.html" %}
+
+{% block main %}
+	<h2>Book</h2>
+	<form method=POST class=post-form>
+		{% csrf_token %}
+		{% for field in form %}
+		<fieldset class="form-group
+			{% if field.errors%}has-error{%endif%}">
+			{{ field.label_tag }}
+			{{ field }}
+			<p class="m-x m-y-0 form-control-feedback">
+			{% for e in field.errors %}
+				<small>{{e}}</small><br>{% endfor %}
+			</p>
+		</fieldset>
+		{% endfor %}
+		<fieldset class=form-group>
+			<button type=submit class="save btn btn-primary">
+				Save</button>
+		</fieldset>
+	</form>
+{% endblock %}

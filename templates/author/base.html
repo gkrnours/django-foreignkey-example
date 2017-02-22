@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<!doctype html>
+<meta charset=utf-8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Task</title>
+<link rel=stylesheet href="{% static '/css/bootstrap.min.css' %}" >
+
+<nav class="navbar navbar-light bg-faded">
+	<a class=navbar-brand href="{% url "author:index" %}">Authors</a>
+	<!--
+	<ul class="nav navbar-nav">
+		<li class=nav-item>
+			<a class=nav-link href=/lesTaches>listing</a>
+	</ul>
+	-->
+</nav>
+<header class=jumbotron>
+	<div class=container>
+		{% block header %}
+		<h1>Authors</h1>
+		{% endblock %}
+	</div>
+</header>
+
+<div class=container>
+	<div class=row>
+		<main class=col-md-8>{% block main %}
+		{% endblock %}</main>
+	</div>
+</div>
